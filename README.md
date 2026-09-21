@@ -1,2 +1,3 @@
 # The-Golden-Gigabytes
-This repository is for our group project. 
+Project Title: 
+Team Members: Sevona, Selene, Ashly, Nathaniel. 
