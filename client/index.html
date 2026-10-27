@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Golden Pages Planner</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+<header class="topbar">
+    <div class="brand">
+    <div class="brand-icon">G</div>
+    <div>
+    <h1>Golden Pages</h1>
+        <p>STUDENT PLANNER</p>
+    </div>
+</div>
+        
+</header>
+
+<main class="container">
+    <section class="welcome">
+<div>
+    <p class="eyebrow">YOUR PERSONAL WORKSPACE</p>
+    <h2>Student Dashboard</h2>
+    <p class="muted">Keep your classes, assignments, and deadlines organized.</p>
+    </div>
+    <div class="today" id="todayDate"></div>
+
+</section>
+
+<nav class="page-tabs">
+    <button type="button" class="tab-button active" data-view="dashboard">Dashboard</button>
+    <button type="button" class="tab-button" data-view="calendar">Calendar</button>
+</nav>
+
+<div id="dashboardView">
+    <section class="stats">
+    <article class="stat-card">
+    <div class="stat-heading"><span>Total Tasks</span><span class="stat-icon blue">▤</span></div>
+    <h3 id="totalTasks">0</h3>
+    <p>Tasks in your planner</p>
+</article>
+    <article class="stat-card">
+    <div class="stat-heading"><span>Completed</span><span class="stat-icon green">✓</span></div>
+    <h3 id="completedTasks">0</h3>
+    <p>Tasks finished</p>
+</article>
+<article class="stat-card">
+    <div class="stat-heading"><span>Upcoming</span><span class="stat-icon gold">◷</span></div>
+    <h3 id="upcomingTasks">0</h3>
+    <p>Tasks still due</p>
+        </article>
+</section>
+
+<section class="content-grid">
+    <div class="left-column">
+        <section class="panel">
+            <div class="panel-heading">
+<div>
+        <h2>Add a Task</h2>
+    <p class="muted">Enter the details for your assignment or activity.</p>
+</div>
+</div>
+
+<form id="taskForm">
+    <div class="form-field full-width">
+    <label for="taskTitle">Task name</label>
+        <input type="text" id="taskTitle" placeholder="e.g. Sprint 2 assignment" required>
+    </div>
+
+    <div class="form-field">
+    <label for="course">Course</label>
+    <input type="text" id="course" placeholder="e.g. COSC 412" required>
+    </div>
+    
+    <div class="form-field">
+    `<label for="dueDate">Due date</label>
+        <input type="date" id="dueDate" required>
+    </div>
+ <div class="form-field">
+    <label for="priority">Priority</label>
+    <select id="priority">
+    <option value="Low">Low</option>
+    <option value="Medium" selected>Medium</option>
+    <option value="High">High</option>
+        </select>
+    </div>
+    
+    <div class="form-field">
+    <label for="estimatedMinutes">Estimated time (minutes)</label>
+        <input type="number" id="estimatedMinutes" min="1" placeholder="e.g. 60" required>
+    </div>
+        <button class="primary-button full-width" type="submit">+ Add Task</button>
+            </form>
+                </section>
+
+<section class="panel">
+    <div class="panel-heading task-heading">
+        <div>
+    <h2>My Tasks</h2>
+        <p class="muted">Manage your assignments and study time.</p>
+    </div>
+        <span class="task-count" id="taskCount">0 tasks</span>
+    </div>
+
+<div class="filters">
+    <button type="button" class="filter-button active" data-filter="all">All</button>
+    <button type="button" class="filter-button" data-filter="active">Incomplete</button>
+    <button type="button" class="filter-button" data-filter="completed">Completed</button>
+</div>
+
+<div id="taskList" class="task-list">
+    <div class="empty-state">
+        <div class="empty-icon">✓</div>
+        <h3>No tasks yet</h3>
+        <p>Add your first task using the form above.</p>
+    </div>
+</div>
+</section>
+    </div>
+
+<div class="right-column">
+    <section class="panel">
+        <div class="panel-heading">
+            <div>
+
+ <h2>My Courses</h2>
+ <p class="muted">Courses in your task list.</p>
+    </div>
+</div>
+<div id="courseList">
+<p class="empty-message">Your courses will appear here.</p>
+</div>
+</section>
+
+<section class="panel">
+<div class="panel-heading">
+<div>
+    <h2>Upcoming Deadlines</h2>
+    <p class="muted">Your next five unfinished tasks.</p>
+</div>
+</div>
+
+<div id="deadlineList">
+    <p class="empty-message">No upcoming deadlines.</p>
+    </div>
+</section>
+
+<section class="tip-card">
+    <div class="tip-symbol">✦</div>
+    <h3>Stay on track</h3>
+    <p>Break your work into smaller tasks and give yourself enough time to finish.</p>
+</section>
+        </div>
+    </section>
+</div>
+
+        <section id="calendarView" class="panel calendar-panel" hidden>
+    <div class="panel-heading">
+<div>
+
+<h2>Calendar & Daily Schedule</h2>
+    <p class="muted">Select a date to see your assignments and deadlines.</p>
+    </div>
+</div>
+
+<div class="calendar-controls">
+    <button type="button" id="prevMonth" class="filter-button">← Previous</button>
+    <h3 id="calendarMonth"></h3>
+    <button type="button" id="nextMonth" class="filter-button">Next →</button>
+</div>
+
+<div class="calendar-grid" id="calendarGrid"></div>
+
+<div class="daily-schedule">
+    <h3 id="selectedDateTitle">Daily Schedule</h3>
+    <div id="dailySchedule"></div>
+</div>
+</section>
+</main>
+
+</body>
+</html>
