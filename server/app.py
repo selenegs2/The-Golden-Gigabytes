@@ -7,19 +7,19 @@ app = Flask(__name__)
 
 @app.route('/courses', methods = ['GET'])
 def get_courses():
-  return  jsonify({¨"message":Get all courses"})
+  return  jsonify({"message":Get all courses"})
 
 @app.route ('/courses', methods = ['POST'])
 def create_course():
-  return   jsonify({¨"message":Course created"})
+  return   jsonify({"message":Course created"})
 
 @app.route ('/courses/<int:id>', methods=['PUT'])
 def update_course(id):
-  return  jsonify({¨"message":f"Course {id} updated"})
+  return  jsonify({"message":f"Course {id} updated"})
 
 @app.route ('/courses/<int:id>', methods=['DELETE'])
 def delete_course(id):
-  return jsonify({¨"message":f"Course {id} deleted"})
+  return jsonify({"message":f"Course {id} deleted"})
 
 # Assigments Routes 
 @app.route('/assignments', methods=['GET'])
